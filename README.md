@@ -7,5 +7,9 @@
 ![Grid layout](/lab2/grid.PNG)
 ![Grid layout](/lab2/flex.PNG)
 
+## lab2 Festival Ticket
+[Lab2 festival ticket](https://github.com/snipercool/webtech3-portfolio/tree/master/lab2/festivalTicket)
 
-[Lab2 festival ticket](https://github.com/snipercool/webtech3-portfolio/tree/master/lab2)
+## lab2 IMDstagram
+[Lab2 festival ticket](https://github.com/snipercool/webtech3-portfolio/tree/master/lab2/IMDstagram)
+
