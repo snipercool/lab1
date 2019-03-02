@@ -1,0 +1,119 @@
+nav ul{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    justify-items: center;
+
+}
+nav li{
+    list-style-type:none; 
+}
+nav .logo{
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 1;
+}
+.typography{
+    grid-column-start: 1;
+    grid-row-start: 2;
+}
+.ui{
+    grid-column-start: 2;
+    grid-row-start: 2; 
+}
+.branding{
+    grid-column-start: 1;
+    grid-row-start: 3;  
+}
+.graffiti{
+    grid-column-start: 2;
+    grid-row-start: 3; 
+}
+section{
+    display: grid;
+    grid-template-columns: 1fr;
+}
+section div{
+    padding: 10px;
+    justify-self: center;
+}
+section div img{
+    width: 100%;
+}
+@media (min-width:40em){
+    section{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+    }
+    nav ul{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+
+    }
+    nav .logo{
+        grid-column-start: 1;
+        grid-column-end: 5;
+        grid-row-start: 1;
+    }
+    .typography{
+        grid-column-start: 1;
+        grid-row-start: 2;  
+    }
+    .ui{
+        grid-column-start: 2;
+        grid-row-start: 2;  
+    }
+    .branding{
+        grid-column-start: 3;
+        grid-row-start: 2;  
+    }
+    .graffiti{
+        grid-column-start: 4;
+        grid-row-start: 2;  
+    }
+
+}
+@media (min-width:1200px){
+    section{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        align-items: center;
+    }
+    nav ul{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr;
+        align-items: center;
+
+    }
+    nav .logo{
+        grid-column-start: 3;
+        grid-column-end: 3;
+        grid-row-start: 1;
+    }
+    .typography{
+        grid-column-start: 1;
+        grid-row-start: 1;
+    }
+    .ui{
+        grid-column-start: 2;
+        grid-row-start: 1; 
+    }
+    .branding{
+        grid-column-start: 4;
+        grid-row-start: 1;  
+    }
+    .graffiti{
+        grid-column-start: 5;
+        grid-row-start: 1; 
+    }
+}
+@media (min-width:1700px){
+    section{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        align-items: center;
+    }
+}
