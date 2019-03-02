@@ -6,3 +6,6 @@
 
 ![Grid layout](/lab2/grid.PNG)
 ![Grid layout](/lab2/flex.PNG)
+
+
+[Lab2 festival ticket](https://github.com/snipercool/webtech3-portfolio/tree/master/lab2)
