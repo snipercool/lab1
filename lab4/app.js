@@ -41,6 +41,19 @@ class Weather{
  }
  getPokemon(summ){
     console.log(summ);
+    let url = `https://cors-anywhere.herokuapp.com/https://api.pokemontcg.io/v1/cards?types=grass`;
+        fetch(url)
+        .then(Response =>{
+            return Response.json();
+        })
+        .then(json =>{
+            console.log(json);
+            json.cards = json.cards.map(x => x.imageUrl);
+            console.log(json.cards);
+            for(let index = 0; index < json.cards.length; ++index){
+                document.querySelector("body").innerHTML += `<img src="${json.cards[index]}"></img>`;
+            }
+        });
  }
  }
  
