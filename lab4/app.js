@@ -41,7 +41,26 @@ class Weather{
  }
  getPokemon(summ){
     console.log(summ);
-    let url = `https://cors-anywhere.herokuapp.com/https://api.pokemontcg.io/v1/cards?types=grass`;
+    var type = "";
+    if (summ.indexOf("Breezy" )!= -1||summ.indexOf("Windy" )!= -1||summ.indexOf("Flurries" )!= -1) {
+        type = "dragon";
+    }
+    else if(summ.indexOf("Drizzle" )!= -1||summ.indexOf("Overcast" )!= -1 ){
+        type = "grass";
+    }
+    else if(summ.indexOf("Rain" )!= -1){
+        type = "water";
+    }
+    else if(summ.indexOf("sun" )!= -1){
+        type = "fire";
+    }
+    else if(summ.indexOf("Storm" )!= -1){
+        type = "lightning";
+    }
+    if(summ.indexOf("Clear")!= -1|| summ.indexOf("Humid")!= -1){
+        type = "Colorless";
+    }
+    let url = `https://cors-anywhere.herokuapp.com/https://api.pokemontcg.io/v1/cards?types=${type}`;
         fetch(url)
         .then(Response =>{
             return Response.json();
