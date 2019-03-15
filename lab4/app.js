@@ -32,7 +32,15 @@ class Weather{
          let temp = document.createElement("h1");
          temp.innerHTML = `Today is ${json.currently.summary} at your location`;
          document.querySelector("body").appendChild(temp);
+         let love = document.createElement("h5");
+        love.innerHTML = "<h2>These pokemon love this weather</h2>";
+        document.querySelector("body").appendChild(love);
+        let summ = json.currently.summary;
+        this.getPokemon(summ);
      });
+ }
+ getPokemon(summ){
+    console.log(summ);
  }
  }
  
