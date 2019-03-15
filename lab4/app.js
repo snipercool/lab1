@@ -28,7 +28,6 @@ class Weather{
          return Response.json();
      })
      .then(json =>{
-         console.log(json);
          let temp = document.createElement("h1");
          temp.innerHTML = `Today is ${json.currently.summary} at your location`;
          document.querySelector("body").appendChild(temp);
@@ -40,7 +39,6 @@ class Weather{
      });
  }
  getPokemon(summ){
-    console.log(summ);
     var type = "";
     if (summ.indexOf("Breezy" )!= -1||summ.indexOf("Windy" )!= -1||summ.indexOf("Flurries" )!= -1) {
         type = "dragon";
@@ -72,7 +70,6 @@ class Weather{
             return Response.json();
         })
         .then(json =>{
-            console.log(json);
             json.cards = json.cards.map(x => x.imageUrl);
             console.log(json.cards);
             for(let index = 0; index < json.cards.length; ++index){
