@@ -44,21 +44,27 @@ class Weather{
     var type = "";
     if (summ.indexOf("Breezy" )!= -1||summ.indexOf("Windy" )!= -1||summ.indexOf("Flurries" )!= -1) {
         type = "dragon";
+        document.body.style.backgroundColor = "lightblue";
     }
     else if(summ.indexOf("Drizzle" )!= -1||summ.indexOf("Overcast" )!= -1 ){
         type = "grass";
+        document.body.style.backgroundColor = "lemongreen";
     }
     else if(summ.indexOf("Rain" )!= -1){
         type = "water";
+        document.body.style.backgroundColor = "blue";
     }
     else if(summ.indexOf("sun" )!= -1){
         type = "fire";
+        document.body.style.backgroundColor = "orange";
     }
     else if(summ.indexOf("Storm" )!= -1){
         type = "lightning";
+        document.body.style.backgroundColor = "yellow";
     }
     if(summ.indexOf("Clear")!= -1|| summ.indexOf("Humid")!= -1){
         type = "Colorless";
+        document.body.style.backgroundColor = "lightbrown";
     }
     let url = `https://cors-anywhere.herokuapp.com/https://api.pokemontcg.io/v1/cards?types=${type}`;
         fetch(url)
