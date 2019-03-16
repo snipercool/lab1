@@ -31,13 +31,14 @@ class Note {
     // HINT🤩
     // localStorage only supports strings, not arrays
     // if you want to store arrays, look at JSON.parse and JSON.stringify
-    localStorage.setItem(title, JSON.stringify(newNote));
+    JSON.parse(localStorage.getItem(title));
+    localStorage.setItem(title, JSON.stringify(title));
   }
   
   remove(){
     // HINT🤩 the meaning of 'this' was set by bind() in the createElement function
     // in this function, 'this' will refer to the current note element
-    localStorage.removeItem(title);
+    this.style.display = "none";
   } 
 }
 
