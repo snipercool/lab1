@@ -5,8 +5,7 @@
   "main": "notes-app",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build":"babel notes-app/js/index.js --watch --out-file test/js/index.js --presets=env -s"
-    
+    "build": "babel notes-app/js/index.js --watch --out-file test/js/index.js --presets=env -s"
   },
   "author": "",
   "license": "ISC",

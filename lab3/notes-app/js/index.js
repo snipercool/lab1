@@ -2,14 +2,23 @@
 class Note {
   constructor(title) {
     this.title = title;
-    // HINT🤩 this.element = this.createElement(title);
+    this.element = this.createElement(title);
   }
   
   createElement(title){
     let newNote = document.createElement('div');
+    /*let getTitle = document.createElement('p');
+    let removeBtn = document.createElement('a');
+    getTitle.innerHTML = title;
+    removeBtn.innerHTML = "remove";
+    removeBtn.classList.add("card-remove");
+    a.addEventListener('click', this.remove.bind(newNote)); of*/
+    newNote.classList.add("card");
+    newNote.innerHTML = `<p>${title}</p>
+    <a href="#" class="card-remove">Remove</a>`;
     
-    // HINT🤩 a.addEventListener('click', this.remove.bind(newNote));
-    
+    addEventListener.addEventListener('click', this.remove.bind(newNote));
+
     return newNote;
   }
   
@@ -22,11 +31,13 @@ class Note {
     // HINT🤩
     // localStorage only supports strings, not arrays
     // if you want to store arrays, look at JSON.parse and JSON.stringify
+    
   }
   
   remove(){
     // HINT🤩 the meaning of 'this' was set by bind() in the createElement function
     // in this function, 'this' will refer to the current note element
+    
   } 
 }
 
@@ -37,9 +48,7 @@ class App {
     // HINT🤩
     // clicking the button should work
     // pressing the enter key should also work
-    // this.btnAdd = ???
-    // this.btnAdd.addEventListener("click", this.createNote.bind(this));
-    // this.loadNotesFromStorage();
+    
   }
   
   loadNotesFromStorage() {
@@ -50,15 +59,17 @@ class App {
    
   createNote(e){
     // this function should create a new note by using the Note() class
-    
+    let titleNote = document.querySelector("#txtAddNote").value;
+    let note = new Note(titleNote);
     // HINT🤩
-    // note.add();
-    // note.saveToStorage();
-    // this.reset();
+    note.add();
+    note.saveToStorage();
+    this.reset();
   }
   
   reset(){
     // this function should reset the form 
+    document.getElementById("txtAddNote").value = '';
   }
   
 }
