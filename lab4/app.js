@@ -36,6 +36,7 @@ class Weather{
         document.querySelector("body").appendChild(love);
         let summ = json.currently.summary;
         this.getPokemon(summ);
+        console.log(summ);
      });
  }
  getPokemon(summ){
@@ -62,7 +63,7 @@ class Weather{
     }
     if(summ.indexOf("Clear")!= -1|| summ.indexOf("Humid")!= -1){
         type = "Colorless";
-        document.body.style.backgroundColor = "lightbrown";
+        document.body.style.backgroundColor = "#fff9d9";
     }
     let url = `https://cors-anywhere.herokuapp.com/https://api.pokemontcg.io/v1/cards?types=${type}`;
         fetch(url)
@@ -71,7 +72,6 @@ class Weather{
         })
         .then(json =>{
             json.cards = json.cards.map(x => x.imageUrl);
-            console.log(json.cards);
             for(let index = 0; index < json.cards.length; ++index){
                 document.querySelector("body").innerHTML += `<img src="${json.cards[index]}"></img>`;
             }
