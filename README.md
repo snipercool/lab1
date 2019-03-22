@@ -15,6 +15,7 @@
 
 # lab3
 [Lab 3](https://github.com/snipercool/webtech3-portfolio/tree/master/lab3)
+[codepen](https://codepen.io/snipercool/pen/RdEyxE?editors=1111)
 
 # Lab4
 [Lab 4](https://github.com/snipercool/webtech3-portfolio/tree/master/lab4)
