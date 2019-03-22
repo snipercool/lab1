@@ -31,8 +31,20 @@ class Note {
     // HINT🤩
     // localStorage only supports strings, not arrays
     // if you want to store arrays, look at JSON.parse and JSON.stringify
-    JSON.parse(localStorage.getItem(title));
-    localStorage.setItem(title, JSON.stringify(title));
+    
+    let dataStorage = localStorage.getItem("title");
+        let dataStorageArray;
+
+        if( dataStorage == null ) 
+        {
+          dataStorageArray = [];
+        }else 
+        {
+            dataStorageArray = JSON.parse( dataStorage );
+        }
+    dataStorageArray.push( this.title );
+    localStorage.setItem("dataStorage", JSON.stringify( dataStorageArray ));
+    
   }
   
   remove(){
@@ -58,6 +70,14 @@ class App {
     // HINT🤩
     // load all notes from storage here and add them to the screen
     // something like note.add() in a loop would be nice
+    let storedData = JSON.parse(localStorage.getItem("title"));
+
+    if( storedData.length > 0 ) {
+      storedData.forEach( title => {
+          let dataStorage = new Note( title );
+          dataStorage.add();
+      });
+  }
   }
    
   createNote(e){
