@@ -18,6 +18,8 @@ class Note {
     <a href="#" class="card-remove">Remove</a>`;
     
     newNote.addEventListener('click', this.remove.bind(newNote));
+    newNote.addEventListener('click', this.removeNote.bind(this.title));
+    
 
     return newNote;
   }
@@ -31,22 +33,26 @@ class Note {
     // HINT🤩
     // localStorage only supports strings, not arrays
     // if you want to store arrays, look at JSON.parse and JSON.stringify
+    let dataStorage = JSON.parse( localStorage.getItem("dataStorage"));
+    if (dataStorage != null) {
+    dataStorage.push(this.title);
+    console.log(dataStorage);
     
-    let dataStorage = localStorage.getItem("title");
-        let dataStorageArray;
-
-        if( dataStorage == null ) 
-        {
-          dataStorageArray = [];
-        }else 
-        {
-            dataStorageArray = JSON.parse( dataStorage );
-        }
-    dataStorageArray.push( this.title );
-    localStorage.setItem("dataStorage", JSON.stringify( dataStorageArray ));
+    localStorage.setItem("dataStorage", JSON.stringify( dataStorage ));
+    }else{
+      dataStorage = [];
+      dataStorage.push(this.title);
+      console.log(dataStorage);
+      localStorage.setItem("dataStorage", JSON.stringify( dataStorage ));
+    }
     
   }
-  
+  removeNote(){
+    let dataArray = JSON.parse(localStorage.getItem("dataStorage"));
+    let splycing = dataArray.indexOf(this);
+    dataArray.splice(splycing, 1);
+    localStorage.setItem("dataStorage", JSON.stringify(dataArray));
+  }
   remove(){
     // HINT🤩 the meaning of 'this' was set by bind() in the createElement function
     // in this function, 'this' will refer to the current note element
@@ -63,6 +69,14 @@ class App {
     // pressing the enter key should also work
     this.btnAdd = document.querySelector("#btnAddNote");
     this.btnAdd.addEventListener("click", this.createNote.bind(this));
+    this.textAdd = document.querySelector("#txtAddNote");
+    this.textAdd.addEventListener("keydown", event => {
+      if(event.keyCode == 13 ){
+      document.querySelector("#btnAddNote").click();
+      return true;
+      }
+      
+    });
     this.loadNotesFromStorage();
   }
   
@@ -72,7 +86,7 @@ class App {
     // something like note.add() in a loop would be nice
     let storedData = JSON.parse(localStorage.getItem("title"));
 
-    if( storedData.length > 0 ) {
+    if(storedData.length > 0) {
       storedData.forEach( title => {
           let dataStorage = new Note( title );
           dataStorage.add();
